@@ -1,7 +1,5 @@
 .nav-items {
-  margin-left: 450px;
   margin-top: 50px;
-  width: 900px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,4 +25,11 @@
   margin-top: 200px;
   position: absolute;
   color: white;
+}
+
+.main-container {
+  max-width: 90%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
 }
