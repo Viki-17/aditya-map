@@ -10,9 +10,9 @@ const API_KEY = "AIzaSyAzm5WL0dv5FYZtGFGRw8COqQDF_xmiGW0";
 //0
 
 const containerStyle = {
-  width: "1174px",
+  width: '100%',
+  maxWidth: "1174px",
   height: "750px",
-  marginLeft: "350px",
 };
 
 //opens to birds eye view of india with zoom 5
@@ -28,9 +28,13 @@ export const MyComponent = () => {
 
   const [view, setView] = React.useState(defaultMarker.position);
 
+  let zoom = 10
+
+  const libs = ["places"]
+
   return (
-    <LoadScript googleMapsApiKey={API_KEY} libraries={["places"]}>
-      <GoogleMap mapContainerStyle={containerStyle} center={view} zoom={10}>
+    <LoadScript googleMapsApiKey={API_KEY} libraries={libs}>
+      <GoogleMap mapContainerStyle={containerStyle} center={view} zoom={zoom}>
         <Markers markers={MARKERS_TO_SHOW} />
         <MyAutoComplete setView={setView} />
       </GoogleMap>
@@ -42,6 +46,7 @@ const MyAutoComplete = ({ setView }) => {
   const [autoComplete, setAutoComplete] = React.useState(null);
 
   const onPlaceChanged = () => {
+    console.log(autoComplete.getPlace())
     if (autoComplete !== null) {
       setView(autoComplete.getPlace().geometry.location);
     } else {
