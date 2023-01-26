@@ -1,0 +1,35 @@
+.nav-items {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  color: white;
+  position: absolute;
+
+  background-color: #c7222a;
+}
+.nav-logo {
+  padding: 30px;
+}
+.bg-img {
+  background-image: url("src/assets/bg.jpg");
+  min-height: 380px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.text {
+  font-size: 50px;
+  margin-top: 200px;
+  position: absolute;
+  color: white;
+}
+
+.main-container {
+  max-width: 90%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
