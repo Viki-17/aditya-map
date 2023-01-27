@@ -5,12 +5,10 @@ import { InfoWindow } from "@react-google-maps/api";
 import { Autocomplete } from "@react-google-maps/api";
 import MARKERS_TO_SHOW from "./Markers";
 
-// const API_KEY = "AIzaSyBajbbB6_CpV9otJ-qVJzjbjvozUQ96qsI";
-const API_KEY = "AIzaSyAzm5WL0dv5FYZtGFGRw8COqQDF_xmiGW0";
-//0
+const API_KEY = import.meta.env.VITE_MAP_API_URL;
 
 const containerStyle = {
-  width: '100%',
+  width: "100%",
   maxWidth: "1174px",
   height: "750px",
 };
@@ -28,10 +26,13 @@ export const MyComponent = () => {
 
   const [view, setView] = React.useState(defaultMarker.position);
 
-  let zoom = 10
+  const [zoom, setZoom] = React.useState(1);
 
-  const libs = ["places"]
+  React.useEffect(() => {
+    setZoom(zoom * 0.001 + 10);
+  }, [view]);
 
+  const libs = ["places"];
   return (
     <LoadScript googleMapsApiKey={API_KEY} libraries={libs}>
       <GoogleMap mapContainerStyle={containerStyle} center={view} zoom={zoom}>
@@ -46,7 +47,7 @@ const MyAutoComplete = ({ setView }) => {
   const [autoComplete, setAutoComplete] = React.useState(null);
 
   const onPlaceChanged = () => {
-    console.log(autoComplete.getPlace())
+    console.log(autoComplete.getPlace());
     if (autoComplete !== null) {
       setView(autoComplete.getPlace().geometry.location);
     } else {

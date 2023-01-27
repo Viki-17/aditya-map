@@ -8,20 +8,16 @@ function App() {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '100%',
-        margin: 'auto'
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        margin: "auto",
       }}
     >
       <Navbar />
-      <Tagline
-        text='There are quite a few 3rd party libraries to choose from and for this article I went with React-Socks.'
-      />
-      <Banner
-        text='Find an Aditya Birla Capital branch near you'
-      />
+      <Tagline text="Experience The Launch Event In Metaverse." />
+      {/* <Banner text="Find an Aditya Birla Capital branch near you" /> */}
       <MyComponent />
       <Footer />
     </div>
